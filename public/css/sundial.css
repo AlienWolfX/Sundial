@@ -1,0 +1,31 @@
+.sundial_greetings {
+    color: #b88e65;
+}
+
+.sundial_streetlight {
+    color: #b88e65;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.bg-success {
+    background-color: #28a745; /* Green */
+}
+
+.bg-warning {
+    background-color: #ffc107; /* Yellow */
+}
+
+.bg-danger {
+    background-color: #dc3545; /* Red */
+}
+
+.bg-primary {
+    background-color: #007bff; /* Blue */
+}
