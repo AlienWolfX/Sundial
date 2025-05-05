@@ -1,6 +1,6 @@
 # About Sundial
 
-This web application is designed to efficiently monitor the status and performance of solar-powered streetlights within Hinatuan. It provides real-time data tracking, system diagnostics, and maintenance alerts to ensure sustainability and optimal functionality of public lighting infrastructure.
+Sundial is a web application designed to efficiently monitor the status and performance of solar-powered streetlights within Hinatuan. It provides real-time data tracking, system diagnostics, and maintenance alerts to ensure sustainability and optimal functionality of public lighting infrastructure.
 
 ## Contributing
 
