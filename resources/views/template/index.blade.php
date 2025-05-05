@@ -207,8 +207,17 @@
 
     <!-- Include ApexCharts Library -->
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- Include SweetAlert Library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
+        Swal.fire({
+          title: 'Maintenance Alert',
+          text: 'Streetlight 1 of Sa-sa needs maintenance',
+          icon: 'warning',
+          confirmButtonText: 'OK'
+        });
+
         // Battery Chart
         if (document.querySelector("#batteryChart")) {
           var batteryOptions = {
