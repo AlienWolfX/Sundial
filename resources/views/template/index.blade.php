@@ -173,7 +173,7 @@
                     <div class="col-lg-4">
                       <div class="reading-box">
                         <h6>Bulb</h6>
-                        <p><strong>Voltage:</strong> 220 V</p>
+                        <p><strong>Voltage:</strong> 11 V</p>
                         <p><strong>Current:</strong> 0.8 A</p>
                         <div id="bulbChart"></div>
                       </div>
@@ -290,7 +290,7 @@
             series: [
               {
                 name: 'Voltage (V)',
-                data: [220, 221, 220, 222, 220]
+                data: [12, 12, 12, 12, 12] // Corrected voltage to 12V
               },
               {
                 name: 'Current (A)',
