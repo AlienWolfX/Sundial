@@ -146,10 +146,18 @@
               <div class="card card-dashboard-new">
                 <div class="card-header">
                   <h6 class="card-title">Streetlight Readings</h6>
-                  <p class="card-text">This card displays the current and voltage readings for the Battery, Solar Panel, and Bulb.</p>
                   <small class="text-muted">Last Updated: {{ now()->format('F j, Y, g:i a') }}</small>
                 </div><!-- card-header -->
                 <div class="card-body">
+                  <div class="row">
+                    <!-- Streetlight Status -->
+                    <div class="col-lg-12 mb-3">
+                      <div class="reading-box">
+                        <h6>Streetlight Status</h6>
+                        <p id="streetlightStatus"><strong>Status:</strong> <span class="text-muted">Select a streetlight to view its status</span></p>
+                      </div>
+                    </div>
+                  </div>
                   <div class="row">
                     <!-- Battery Readings -->
                     <div class="col-lg-4">
@@ -173,7 +181,7 @@
                     <div class="col-lg-4">
                       <div class="reading-box">
                         <h6>Bulb</h6>
-                        <p><strong>Voltage:</strong> 11 V</p>
+                        <p><strong>Voltage:</strong> 12 V</p>
                         <p><strong>Current:</strong> 0.8 A</p>
                         <div id="bulbChart"></div>
                       </div>
@@ -209,108 +217,6 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <!-- Include SweetAlert Library -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        Swal.fire({
-          title: 'Maintenance Alert',
-          text: 'Streetlight 1 of Sa-sa needs maintenance',
-          icon: 'warning',
-          confirmButtonText: 'OK'
-        });
-
-        // Battery Chart
-        if (document.querySelector("#batteryChart")) {
-          var batteryOptions = {
-            chart: {
-              type: 'line',
-              height: 200
-            },
-            series: [
-              {
-                name: 'Voltage (V)',
-                data: [12.0, 12.2, 12.5, 12.7, 12.5]
-              },
-              {
-                name: 'Current (A)',
-                data: [1.0, 1.1, 1.2, 1.3, 1.2]
-              }
-            ],
-            xaxis: {
-              categories: ['1 AM', '2 AM', '3 AM', '4 AM', '5 AM']
-            },
-            title: {
-              align: 'center'
-            },
-            colors: ['#008FFB', '#FF4560']
-          };
-          var batteryChart = new ApexCharts(document.querySelector("#batteryChart"), batteryOptions);
-          batteryChart.render();
-        } else {
-          console.error("Element #batteryChart not found.");
-        }
-
-        // Solar Panel Chart
-        if (document.querySelector("#solarPanelChart")) {
-          var solarPanelOptions = {
-            chart: {
-              type: 'line',
-              height: 200
-            },
-            series: [
-              {
-                name: 'Voltage (V)',
-                data: [17.5, 18.0, 18.2, 18.5, 18.0]
-              },
-              {
-                name: 'Current (A)',
-                data: [2.3, 2.4, 2.5, 2.6, 2.5]
-              }
-            ],
-            xaxis: {
-              categories: ['1 AM', '2 AM', '3 AM', '4 AM', '5 AM']
-            },
-            title: {
-              align: 'center'
-            },
-            colors: ['#00E396', '#775DD0']
-          };
-          var solarPanelChart = new ApexCharts(document.querySelector("#solarPanelChart"), solarPanelOptions);
-          solarPanelChart.render();
-        } else {
-          console.error("Element #solarPanelChart not found.");
-        }
-
-        // Bulb Chart
-        if (document.querySelector("#bulbChart")) {
-          var bulbOptions = {
-            chart: {
-              type: 'line',
-              height: 200
-            },
-            series: [
-              {
-                name: 'Voltage (V)',
-                data: [12, 12, 12, 12, 12] // Corrected voltage to 12V
-              },
-              {
-                name: 'Current (A)',
-                data: [0.7, 0.8, 0.8, 0.9, 0.8]
-              }
-            ],
-            xaxis: {
-              categories: ['1 AM', '2 AM', '3 AM', '4 AM', '5 AM']
-            },
-            title: {
-              align: 'center'
-            },
-            colors: ['#FEB019', '#FF4560']
-          };
-          var bulbChart = new ApexCharts(document.querySelector("#bulbChart"), bulbOptions);
-          bulbChart.render();
-        } else {
-          console.error("Element #bulbChart not found.");
-        }
-      });
-    </script>
+    <script src="{{ asset('js/sundial.js') }}"></script>;
   </body>
 </html>
