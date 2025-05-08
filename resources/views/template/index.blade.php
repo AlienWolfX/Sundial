@@ -11,6 +11,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="icon" href="{{ asset('img/ico.png') }}" type="image/png">
+
     <!-- vendor css -->
     <link href="{{ asset("lib/fontawesome-free/css/all.min.css")}}" rel="stylesheet">
     <link href="{{ asset("lib/ionicons/css/ionicons.min.css")}}" rel="stylesheet">
@@ -49,6 +51,12 @@
       .reading-box #bulbChart {
         margin-top: 15px;
       }
+
+      /* Remove focus outline for the Login button */
+      .nav-item .btn:focus {
+        outline: none;
+        box-shadow: none;
+      }
     </style>
   </head>
   <body>
@@ -61,12 +69,17 @@
         </div><!-- az-header-left -->
         <div class="az-header-menu">
           <div class="az-header-menu-header">
-            <a href="{{ url('/')}}" class="az-logo"><span></span>Sundial</a>
+            <a href="{{ url('/') }}" class="az-logo"><span></span>Sundial</a>
             <a href="" class="close">&times;</a>
           </div><!-- az-header-menu-header -->
           <ul class="nav">
             <li class="nav-item active show">
-              <a href="{{ url('/')}}" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+              <a href="{{ url('/') }}" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('login') }}" class="btn btn-primary ml-3" style="background: none; border: none; color: #007bff; outline: none;">
+                <i class="fas fa-sign-in-alt"></i> Login
+              </a>
             </li>
           </ul>
         </div><!-- az-header-menu -->
