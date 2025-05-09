@@ -73,14 +73,21 @@
             <a href="" class="close">&times;</a>
           </div><!-- az-header-menu-header -->
           <ul class="nav">
-            <li class="nav-item active show">
-              <a href="{{ url('/') }}" class="nav-link"><i class="typcn typcn-chart-area-outline"></i> Dashboard</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ route('login') }}" class="btn btn-primary ml-3" style="background: none; border: none; color: #007bff; outline: none;">
-                <i class="fas fa-sign-in-alt"></i> Login
-              </a>
-            </li>
+            @auth
+              <li class="nav-item">
+                <span class="btn btn-primary ml-3" style="background: none; border: none; color: #007bff; outline: none;">
+                  <a href="{{ route('dashboard') }}">
+                    <i class="fas fa-user"></i> {{ auth()->user()->name }}
+                  </a>
+                </span>
+              </li>
+            @else
+              <li class="nav-item">
+                <a href="{{ route('login') }}" class="btn btn-primary ml-3" style="background: none; border: none; color: #007bff; outline: none;">
+                  <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+              </li>
+            @endauth
           </ul>
         </div><!-- az-header-menu -->
       </div><!-- container -->
