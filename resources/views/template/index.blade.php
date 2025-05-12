@@ -111,6 +111,7 @@
           <div class="row row-sm mg-b-20">
             <div class="col-lg-6">
              <!-- Total Devices Card -->
+             <!-- To be dynamically generated -->
               <div class="card card-dashboard-three">
                 <div class="card-header">
                   <p>Total Devices</p>
