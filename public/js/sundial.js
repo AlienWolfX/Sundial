@@ -1,11 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    Swal.fire({
-        title: "Maintenance Alert",
-        text: "Streetlight 1 of Sa-sa needs maintenance",
-        icon: "warning",
-        confirmButtonText: "OK",
-    });
-
     // Battery Chart
     if (document.querySelector("#batteryChart")) {
         var batteryOptions = {

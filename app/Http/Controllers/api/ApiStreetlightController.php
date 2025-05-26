@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Readings;
+use App\Models\Streetlight;
 use Illuminate\Http\Request;
 
 class ApiStreetlightController extends Controller
@@ -12,15 +14,45 @@ class ApiStreetlightController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Streetlight readings retrieved successfully.',
+            'data' => Readings::all()
+        ]);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Display Summary
      */
-    public function store(Request $request)
+
+    public function show_summary()
     {
-        //
+        $streetlights = Streetlight::select('name', 'status', 'location')->get();
+        $activeCount = $streetlights->where('status', 'Active')->count();
+        $inactiveCount = $streetlights->where('status', 'Inactive')->count();
+        $maintenanceCount = $streetlights->where('status', 'Maintenance')->count();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Streetlights Summary retrieved successfully.',
+            'count' => $streetlights->count(),
+            'active' => $activeCount,
+            'inactive' => $inactiveCount,
+            'maintenance' => $maintenanceCount,
+        ]);
+    }
+
+    /**
+     * Display Streetlights
+     */
+
+    public function show_streetlight() {
+        $streetlights = Streetlight::all();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Streetlights retrieved successfully.',
+            'data' => $streetlights
+        ]);
     }
 
     /**
@@ -28,22 +60,11 @@ class ApiStreetlightController extends Controller
      */
     public function show(string $id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $readings = Readings::where('streetlight_id', $id)->get();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Streetlight readings retrieved successfully.',
+            'data' => $readings
+        ]);
     }
 }

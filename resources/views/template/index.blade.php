@@ -114,9 +114,15 @@
              <!-- To be dynamically generated -->
               <div class="card card-dashboard-three">
                 <div class="card-header">
-                  <p>Total Devices</p>
-                  <h6>16,869</h6>
-                  <small>Overview of Active, Inactive and For Maintenance streetlights</small>
+                    <p>Total Devices</p>
+                    <h6 id="totalDevices">Loading...</h6>
+                    <small>
+                        <span id="activeCount">Active: ...</span> |
+                        <span id="inactiveCount">Inactive: ...</span> |
+                        <span id="maintenanceCount">Maintenance: ...</span>
+                        <br>
+                        Overview of Active, Inactive and For Maintenance streetlights
+                    </small>
                 </div>
                 <div class="card-body">
                   <div class="chart"><canvas id="chartBar5"></canvas></div>
@@ -131,32 +137,9 @@
                   <h6 class="card-title">Streetlights</h6>
                   <small class="text-muted">Please select a streetlight to view</small>
                 </div><!-- card-header -->
-                <div class="card-body">
-                  <div class="az-list-item d-flex justify-content-between align-items-center">
-                    <h7 class="sundial_streetlight">
-                      <span class="status-dot bg-success"></span> Sa-sa
-                    </h7>
-                    <span><i class="fas fa-eye"></i></span>
-                  </div><!-- list-group-item -->
-                  <div class="az-list-item d-flex justify-content-between align-items-center">
-                    <h7 class="sundial_streetlight">
-                      <span class="status-dot bg-warning"></span> Bitoon
-                    </h7>
-                    <span><i class="fas fa-eye"></i></span>
-                  </div><!-- list-group-item -->
-                  <div class="az-list-item d-flex justify-content-between align-items-center">
-                    <h7 class="sundial_streetlight">
-                      <span class="status-dot bg-danger"></span> Cantabon
-                    </h7>
-                    <span><i class="fas fa-eye"></i></span>
-                  </div><!-- list-group-item -->
-                  <div class="az-list-item d-flex justify-content-between align-items-center">
-                    <h7 class="sundial_streetlight">
-                      <span class="status-dot bg-success"></span> Quarry
-                    </h7>
-                    <span><i class="fas fa-eye"></i></span>
-                  </div><!-- list-group-item -->
-                </div><!-- card-body -->
+                    <div class="card-body" id="streetlightList">
+
+                    </div>
               </div><!-- card -->
             </div><!-- col -->
           </div><!-- row -->
@@ -222,6 +205,10 @@
       </div><!-- container -->
     </div><!-- az-footer -->
 
+    <script>
+        window.SUNDIAL_API_BASE = "{{ url('/api/v1') }}";
+    </script>
+    <script src="{{ asset('js/dashboard-api.js') }}"></script>
     <script src="{{ asset("lib/jquery/jquery.min.js")}}"></script>
     <script src="{{ asset("lib/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
     <script src="{{ asset("lib/ionicons/ionicons.js")}}"></script>

@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('readings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('streetlight_id')->constrained()->onDelete('cascade');
-            $table->integer('voltage_batt');
-            $table->integer('current_batt');
-            $table->integer('voltage_solar');
-            $table->integer('current_solar');
-            $table->integer('voltage_load');
-            $table->integer('current_load');
+            $table->float('voltage_batt', 8, 2);
+            $table->float('current_batt', 8, 2);
+            $table->float('voltage_solar', 8, 2);
+            $table->float('current_solar', 8, 2);
+            $table->float('voltage_load', 8, 2);
+            $table->float('current_load', 8, 2);
             $table->timestamps();
         });
     }
