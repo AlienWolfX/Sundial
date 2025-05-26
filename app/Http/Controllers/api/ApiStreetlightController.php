@@ -67,7 +67,8 @@ class ApiStreetlightController extends Controller
             'status' => 'success',
             'message' => 'Streetlight readings retrieved successfully.',
             'data' => $readings,
-            'streetlight_status' => $streetlight ? $streetlight->status : null
+            'streetlight_status' => $streetlight ? $streetlight->status : null,
+            'streetlight_name' => $streetlight ? $streetlight->name : null
         ]);
     }
 }

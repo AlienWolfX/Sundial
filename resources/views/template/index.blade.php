@@ -157,7 +157,7 @@
                     <!-- Streetlight Status -->
                     <div class="col-lg-12 mb-3">
                       <div class="reading-box">
-                        <h6>Streetlight Status</h6>
+                        <h6>Streetlight <span id="streetlightName" class="text-primary" style="font-weight:bold;"></span></h6>
                         <p id="streetlightStatus"><strong>Status:</strong> <span class="text-muted">Select a streetlight to view its status</span></p>
                       </div>
                     </div>

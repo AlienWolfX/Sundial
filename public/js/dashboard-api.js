@@ -172,6 +172,10 @@ function fetchStreetlightReadings(streetlightId, streetlightName) {
     fetch(window.SUNDIAL_API_BASE + `/readings/${streetlightId}`)
         .then((response) => response.json())
         .then((data) => {
+            // Always set the name, even if there are no readings
+            document.getElementById("streetlightName").innerHTML =
+                data.streetlight_name || "";
+
             if (data.data && data.data.length > 0) {
                 // Show the latest reading
                 const status = data.streetlight_status;
@@ -349,11 +353,14 @@ function fetchStreetlightReadings(streetlightId, streetlightName) {
                 document.getElementById("bulbVoltageValue").textContent = "";
                 document.getElementById("bulbCurrentValue").textContent = "";
             }
+            updateLastUpdated();
         })
         .catch(() => {
+            document.getElementById("streetlightName").innerHTML = "";
             document.getElementById(
                 "streetlightStatus"
             ).innerHTML = `<strong>Status:</strong> <span class="text-danger">Failed to load readings</span>`;
+            updateLastUpdated();
         });
 }
 
@@ -468,6 +475,10 @@ function fetchStreetlightReadings(streetlightId, streetlightName) {
     fetch(window.SUNDIAL_API_BASE + `/readings/${streetlightId}`)
         .then((response) => response.json())
         .then((data) => {
+            // Always set the name, even if there are no readings
+            document.getElementById("streetlightName").innerHTML =
+                data.streetlight_name || "";
+
             if (data.data && data.data.length > 0) {
                 // Show the latest reading
                 const status = data.streetlight_status;
@@ -648,6 +659,7 @@ function fetchStreetlightReadings(streetlightId, streetlightName) {
             updateLastUpdated();
         })
         .catch(() => {
+            document.getElementById("streetlightName").innerHTML = "";
             document.getElementById(
                 "streetlightStatus"
             ).innerHTML = `<strong>Status:</strong> <span class="text-danger">Failed to load readings</span>`;
