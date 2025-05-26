@@ -9,15 +9,15 @@ document.addEventListener("DOMContentLoaded", function () {
             series: [
                 {
                     name: "Voltage (V)",
-                    data: [12.0, 12.2, 12.5, 12.7, 12.5],
+                    data: [],
                 },
                 {
                     name: "Current (A)",
-                    data: [1.0, 1.1, 1.2, 1.3, 1.2],
+                    data: [],
                 },
             ],
             xaxis: {
-                categories: ["1 AM", "2 AM", "3 AM", "4 AM", "5 AM"],
+                categories: [],
             },
             title: {
                 align: "center",
@@ -43,15 +43,15 @@ document.addEventListener("DOMContentLoaded", function () {
             series: [
                 {
                     name: "Voltage (V)",
-                    data: [17.5, 18.0, 18.2, 18.5, 18.0],
+                    data: [],
                 },
                 {
                     name: "Current (A)",
-                    data: [2.3, 2.4, 2.5, 2.6, 2.5],
+                    data: [],
                 },
             ],
             xaxis: {
-                categories: ["1 AM", "2 AM", "3 AM", "4 AM", "5 AM"],
+                categories: [],
             },
             title: {
                 align: "center",
@@ -77,15 +77,15 @@ document.addEventListener("DOMContentLoaded", function () {
             series: [
                 {
                     name: "Voltage (V)",
-                    data: [12, 12, 12, 12, 12], // Corrected voltage to 12V
+                    data: [],
                 },
                 {
                     name: "Current (A)",
-                    data: [0.7, 0.8, 0.8, 0.9, 0.8],
+                    data: [],
                 },
             ],
             xaxis: {
-                categories: ["1 AM", "2 AM", "3 AM", "4 AM", "5 AM"],
+                categories: [],
             },
             title: {
                 align: "center",

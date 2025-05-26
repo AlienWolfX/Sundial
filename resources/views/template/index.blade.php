@@ -150,7 +150,7 @@
               <div class="card card-dashboard-new">
                 <div class="card-header">
                   <h6 class="card-title">Streetlight Readings</h6>
-                  <small class="text-muted">Last Updated: {{ now()->format('F j, Y, g:i a') }}</small>
+                  <small class="text-muted"></small>
                 </div><!-- card-header -->
                 <div class="card-body">
                   <div class="row">
@@ -167,8 +167,8 @@
                     <div class="col-lg-4">
                       <div class="reading-box">
                         <h6>Battery</h6>
-                        <p><strong>Voltage:</strong> 12.5 V</p>
-                        <p><strong>Current:</strong> 1.2 A</p>
+                        <p><strong>Voltage:</strong> <span id="batteryVoltageValue" class="text-info"></span></p>
+                        <p><strong>Current:</strong> <span id="batteryCurrentValue" class="text-info"></span></p>
                         <div id="batteryChart"></div>
                       </div>
                     </div>
@@ -176,8 +176,8 @@
                     <div class="col-lg-4">
                       <div class="reading-box">
                         <h6>Solar Panel</h6>
-                        <p><strong>Voltage:</strong> 18.0 V</p>
-                        <p><strong>Current:</strong> 2.5 A</p>
+                        <p><strong>Voltage:</strong> <span id="solarVoltageValue" class="text-info"></span></p>
+                        <p><strong>Current:</strong> <span id="solarCurrentValue" class="text-info"></span></p>
                         <div id="solarPanelChart"></div>
                       </div>
                     </div>
@@ -185,8 +185,8 @@
                     <div class="col-lg-4">
                       <div class="reading-box">
                         <h6>Bulb</h6>
-                        <p><strong>Voltage:</strong> 12 V</p>
-                        <p><strong>Current:</strong> 0.8 A</p>
+                        <p><strong>Voltage:</strong> <span id="bulbVoltageValue" class="text-info"></span></p>
+                        <p><strong>Current:</strong> <span id="bulbCurrentValue" class="text-info"></span></p>
                         <div id="bulbChart"></div>
                       </div>
                     </div>

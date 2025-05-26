@@ -61,10 +61,13 @@ class ApiStreetlightController extends Controller
     public function show(string $id)
     {
         $readings = Readings::where('streetlight_id', $id)->get();
+        $streetlight = Streetlight::find($id);
+
         return response()->json([
             'status' => 'success',
             'message' => 'Streetlight readings retrieved successfully.',
-            'data' => $readings
+            'data' => $readings,
+            'streetlight_status' => $streetlight ? $streetlight->status : null
         ]);
     }
 }
