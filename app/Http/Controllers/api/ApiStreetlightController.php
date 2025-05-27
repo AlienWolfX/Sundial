@@ -71,4 +71,27 @@ class ApiStreetlightController extends Controller
             'streetlight_name' => $streetlight ? $streetlight->name : null
         ]);
     }
+
+    public function update_status(Request $request, string $id)
+    {
+        $data = $request->validate([
+            'status' => 'required|string|in:Active,Inactive,Maintenance',
+        ]);
+
+        $streetlight = Streetlight::find($id);
+        if (!$streetlight) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Streetlight not found.',
+            ], 404);
+        }
+
+        $streetlight->status = $data['status'];
+        $streetlight->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Streetlight status updated successfully.',
+        ]);
+    }
 }
