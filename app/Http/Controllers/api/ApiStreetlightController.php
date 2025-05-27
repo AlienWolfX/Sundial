@@ -89,6 +89,11 @@ class ApiStreetlightController extends Controller
         $streetlight->status = $data['status'];
         $streetlight->save();
 
+        if ($data['status'] === 'Maintenance') {
+            $scriptPath = base_path('../test/new.py');
+            shell_exec("python3 " . escapeshellarg($scriptPath) . " maintenance");
+        }
+
         return response()->json([
             'status' => 'success',
             'message' => 'Streetlight status updated successfully.',
